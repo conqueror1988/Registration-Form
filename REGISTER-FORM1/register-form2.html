@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <style type="text/CSS">
+      /* Tag sellectör ile fieldset çerçevesi şekillendirildi. */
+      fieldset {
+        border: 2px solid cornflowerblue;
+        width: 350px;
+        padding: 15px 30px;
+        border-radius: 15px;
+      }
+      /* Form etiketinin sadece ilk child elementi olan tüm input elementleri seçildi. Böylece <section> içerisindeki gender ve butonlar dışta tutularak input kutuları hizalanmış oldu. positon:absolute değeriyle elementler mevcut akış konumlarında bırakılarak sadece sütun hizalaması yapıldı   */
+      form > input {
+        position: absolute;
+        left: 150px;
+      }
+      /* gender raio butonları sağa doğru 15 piksel hizalandı */
+      #gender {
+        margin-left: 15px;
+      }
+      /* Form başlığı olan h2 etiketi ve .button class seçici ile section içindeki butonlar hizalandı. section içindeki inputlar doğrudan seçilmediği için color özelliği sadece h2 etiket içeriğine uygulanacaktır. */
+      h2,
+      .button {
+        color: red;
+        text-align: center;
+      }
+      /* date of birth kısmında input type:date olarak seçildiğinde position: absolute şekillendirmesinden kaynaklı input kutusu küçülüyor. input[type="date"] şeklinde spesifik selector tanımlayarak şekillendirme yeniden yapıldı. */
+      input[type="date"] {
+        height: 19px;
+        width: 165px;
+      }
+      /* class seçicisi .buton olan input elementleri seçilerek, butonlar stillendirildi  */
+      .button input {
+        margin-left: 20px;
+        padding: 7px 35px;
+        border-radius: 12px;
+        font-size: 18px;
+        background-color: darkgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <!-- fieldset form ögelerini gruplamak için kullanılan bir etikettir. Ögelerin hepsini otomatik olarak çerçeve içine alır. İstenirse <legend> etiketi ile çerçeve üst sol çerçeve çizgisi içinde kalacak şekilde form grubuna isim verilebilir. -->
+      <h2>Registration Form</h2>
+      <form action="/action_page.php" method="get" name="Registration-form">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="firstname" autofocus /><br /><br />
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lastname" /><br /><br />
+        <label for="mail">E-mail:</label>
+        <input type="email" id="mail" name="email" /><br /><br />
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="password" /><br /><br />
+        <label for="birth">Date of Birth:</label>
+        <input type="date" id="birth" name="dateofbirth" /><br />
+        <section id="gender">
+          <p>Gender:</p>
+          <input type="radio" id="gender" name="gender" value="male" checked />
+          <label for="gender">Male</label>
+          <input type="radio" id="gender" name="gender" value="female" />
+          <label for="gender">Female</label><br /><br />
+        </section>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobilephone" />
+        <br /><br />
+        <section class="button">
+          <input type="submit" name="submit" value="SUBMIT" />
+          <input type="reset" name="reset" value="RESET" />
+        </section>
+      </form>
+    </fieldset>
+  </body>
+</html>
